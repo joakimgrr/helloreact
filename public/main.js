@@ -1,9 +1,6 @@
 var TodoInsert = React.createClass({
     setText: function(){
         var text = React.findDOMNode(this.refs.todoInput).value;
-
-        console.log("text: ",text)
-
         this.props.onUpdate(text);
     },
 
@@ -19,15 +16,22 @@ var TodoInsert = React.createClass({
 
 var TodoItems = React.createClass({
     render: function() {
-        var todoItems = this.props.todos.map(function(todo){
-                return <li key={todo.key}>{todo.text}</li>
-        });
+        var todoItems = this.props.todos;
+        var searchString = this.props.search.toLowerCase();
 
-        console.log(todoItems)
+        if(searchString.length > 0){
+            todoItems = todoItems.filter(function(todo) {
+                return todo.text.toLowerCase().match(searchString);
+            });
+        }
+
+        var elements = todoItems.map(function(todo){
+            return <li key={todo.key}>{todo.text}</li>
+        });
 
         return (
             <ul>
-                {todoItems}
+                {elements}
             </ul>
         )
     }
@@ -41,7 +45,8 @@ var TodoApp = React.createClass({
                     key: 0,
                     text: "Test"
                 }
-            ]
+            ],
+            searchString: ''
         }
     },
 
@@ -61,12 +66,19 @@ var TodoApp = React.createClass({
         this.setState({todos: todos});
     },
 
+    setSearch: function(searchString) {
+        var string = searchString;
+
+        this.setState({searchString: string});
+    },
+
     render: function() {
         return (
             <div>
                 <p>Todo list</p>
-                <TodoItems todos={this.state.todos}/>
+                <TodoItems todos={this.state.todos} search={this.state.searchString}/>
                 <TodoInsert onUpdate={this.addTodo}/>
+                <Search onUpdate={this.setSearch}/>
             </div>
         );
     }
