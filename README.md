@@ -1,5 +1,5 @@
 # helloreact
-My React.js playground / tinkering repo
+My React.js playground / tinkering repo.
 
 ## Install
 ```
