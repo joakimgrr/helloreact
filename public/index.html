@@ -6,11 +6,16 @@
         <script src="react.js"></script>
         <!-- In-browser JSX transformer, remove when pre-compiling JSX. -->
         <script src="JSXTransformer.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     </head>
     <body>
-        <div id="reactDom"></div>
-        <div id="text"></div>
-        
+        <div class="container">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <div id="reactDom"></div>
+            </div>
+        </div>
+
         <script type="text/jsx" src="search.js"></script>
         <script type="text/jsx" src="main.js"></script>
     </body>

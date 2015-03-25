@@ -6,9 +6,20 @@ var TodoInsert = React.createClass({
 
     render: function() {
         return (
-            <div>
-                <input ref="todoInput" type="text" />
-                <button onClick={this.setText}>Add</button>
+            <div className="input-group">
+                <input
+                    ref="todoInput"
+                    type="text"
+                    className="form-control"
+                    placeholder="Add todo..."
+                />
+                <span className="input-group-btn">
+                    <button
+                        onClick={this.setText}
+                        className="btn btn-success"
+                        type="button"
+                    >Add</button>
+                </span>
             </div>
         )
     }
@@ -16,9 +27,14 @@ var TodoInsert = React.createClass({
 
 var TodoItems = React.createClass({
     render: function() {
+        /**
+        *   todos and searchsting are passed to <TodoItems />
+        *   from state
+        */
         var todoItems = this.props.todos;
         var searchString = this.props.search.toLowerCase();
 
+        // If we have a searchsting filter the items array
         if(searchString.length > 0){
             todoItems = todoItems.filter(function(todo) {
                 return todo.text.toLowerCase().match(searchString);
@@ -26,11 +42,11 @@ var TodoItems = React.createClass({
         }
 
         var elements = todoItems.map(function(todo){
-            return <li key={todo.key}>{todo.text}</li>
+            return <li key={todo.key} className="list-group-item">{todo.text}</li>
         });
 
         return (
-            <ul>
+            <ul className="list-group">
                 {elements}
             </ul>
         )
@@ -74,11 +90,11 @@ var TodoApp = React.createClass({
 
     render: function() {
         return (
-            <div>
-                <p>Todo list</p>
+            <div className="row">
+                <h2>Todo list</h2>
+                <Search onUpdate={this.setSearch}/>
                 <TodoItems todos={this.state.todos} search={this.state.searchString}/>
                 <TodoInsert onUpdate={this.addTodo}/>
-                <Search onUpdate={this.setSearch}/>
             </div>
         );
     }

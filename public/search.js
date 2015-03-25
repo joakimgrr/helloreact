@@ -13,6 +13,7 @@ var Search = React.createClass({
                 ref="searchString"
                 type="text"
                 placeholder="Search..."
+                className="form-control"
                 onChange={this.search}
             />
         )
