@@ -8,5 +8,5 @@ My React.js playground / tinkering repo.
 ```
 
 ## Resources
-https://github.com/mikechau/react-primer-draft
-https://github.com/mhart/react-server-example
+- https://github.com/mikechau/react-primer-draft
+- https://github.com/mhart/react-server-example
