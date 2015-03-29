@@ -20,3 +20,5 @@ Supersimple Todo app but with server side rendering
 - https://github.com/mikechau/react-primer-draft
 - https://github.com/mhart/react-server-example
 - https://github.com/jesstelford/react-isomorphic-boilerplate
+- https://github.com/facebook/react/wiki/Complementary-Tools
+- https://github.com/chadpaulson/react-isomorphic-video-game-search/
