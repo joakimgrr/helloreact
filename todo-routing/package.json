@@ -1,0 +1,16 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "browserify": "^9.0.3",
+    "express": "^4.10.7",
+    "gulp": "^3.9.0",
+    "gulp-react": "^3.0.1",
+    "gulp-webpack": "^1.5.0",
+    "node-jsx": "^0.12.4",
+    "react": "^0.13.0",
+    "react-router": "^0.13.3",
+    "react-tools": "^0.13.1"
+  }
+}
